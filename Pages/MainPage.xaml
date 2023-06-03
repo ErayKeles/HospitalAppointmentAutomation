@@ -1,0 +1,54 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HospitalAppointmentAutomation.MainPage">
+    <ContentPage.Resources>
+        <Color x:Key="PrimaryColor">#2196F3</Color>
+        <Thickness x:Key="ButtonMargin">10</Thickness>
+    </ContentPage.Resources>
+
+    <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Image
+            Source="arkatema.jpg"
+            Aspect="AspectFill"
+            Grid.RowSpan="3"
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill" />
+
+        <StackLayout Orientation="Vertical" Grid.Row="0" HorizontalOptions="Center">
+            <Image
+                Source="hastanead.png"
+                Aspect="AspectFit"
+                WidthRequest="200"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                <Button
+                    x:Name="LoginButton"
+                    Text="Giriş Yap"
+                    Clicked="OnLoginClicked"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    TextColor="White"
+                    CornerRadius="5"
+                    Padding="10,5"
+                    Margin="{StaticResource ButtonMargin}" />
+
+                <Button
+                    x:Name="RegisterButton"
+                    Text="Kayıt Ol"
+                    Clicked="OnRegisterClicked"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    TextColor="White"
+                    CornerRadius="5"
+                    Padding="10,5"
+                    Margin="{StaticResource ButtonMargin}" />
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,41 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             x:Class="HospitalAppointmentAutomation.AppointmentPage">
+
+    <StackLayout>
+        <!-- Randevu oluşturma bölümü -->
+        <Frame>
+            <StackLayout Spacing="10">
+                <Label Text="Create an appointment" FontSize="Large" />
+
+                <DatePicker x:Name="AppointmentDate" MinimumDate="{x:Static sys:DateTime.Now}" />
+                <TimePicker x:Name="AppointmentTime" />
+                <Picker x:Name="DoctorPicker" Title="Select a doctor" />
+
+                <Button Text="Book appointment" Clicked="OnBookAppointmentClicked" />
+            </StackLayout>
+        </Frame>
+
+        <!-- Mevcut randevuları görüntüleme bölümü -->
+        <Frame>
+            <StackLayout Spacing="10">
+                <Label Text="My appointments" FontSize="Large" />
+
+                <ListView x:Name="AppointmentListView" ItemSelected="OnAppointmentSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <Label Text="{Binding Date}" />
+                                    <Label Text="{Binding Doctor}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+
+</ContentPage>
